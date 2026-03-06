@@ -1,0 +1,83 @@
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: #FFFFFF; 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+}
+
+.font-editorial { font-family: 'Playfair Display', serif; }
+
+/* Glassmorphism con un toque rosa */
+.glass { 
+    background: rgba(255, 255, 255, 0.9); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Fondo de malla con más presencia de rosa */
+.bg-mesh {
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(221, 158, 172, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(48, 48, 48, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(221, 158, 172, 0.05) 0px, transparent 50%);
+}
+
+/* Tarjetas Premium con hover Rosa */
+.card-premium { 
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    border: 1px solid rgba(221, 158, 172, 0.2);
+}
+
+.card-premium:hover { 
+    transform: translateY(-12px); 
+    border-color: #DD9EAC;
+    box-shadow: 0 30px 60px -12px rgba(221, 158, 172, 0.2); 
+}
+
+/* Botones Protagonistas en Rosa #DD9EAC */
+.btn-gradient { 
+    background: #DD9EAC;
+    color: white;
+    transition: all 0.4s ease; 
+    box-shadow: 0 4px 15px rgba(221, 158, 172, 0.4);
+}
+
+.btn-gradient:hover {
+    background: #303030; /* Cambia a gris oscuro para un contraste elegante */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(48, 48, 48, 0.2);
+}
+
+/* Animaciones */
+.floating { animation: float 6s ease-in-out infinite; }
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(1deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+    100% { transform: translateY(0px) rotate(1deg); }
+}
+
+.pulse-whatsapp { animation: pulse-green 2s infinite; }
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Decoración extra para títulos */
+.title-underline {
+    position: relative;
+    display: inline-block;
+}
+.title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(221, 158, 172, 0.3);
+    z-index: -1;
+}
