@@ -164,7 +164,62 @@ links.forEach(link => {
     });
 });
 
+ const DURACION = 15 * 60; // 15 min
+
+    let tiempoGuardado = localStorage.getItem("contador");
+
+    if (!tiempoGuardado) {
+        const ahora = Date.now();
+        const final = ahora + DURACION * 1000;
+        localStorage.setItem("contador", final);
+        tiempoGuardado = final;
+    }
+
+    function actualizarContador() {
+        const ahora = Date.now();
+        const distancia = tiempoGuardado - ahora;
+
+        if (distancia <= 0) return;
+
+        const minutos = Math.floor((distancia / 1000) / 60);
+        const segundos = Math.floor((distancia / 1000) % 60);
+
+        document.getElementById("minutos").innerText = minutos.toString().padStart(2, "0");
+        document.getElementById("segundos").innerText = segundos.toString().padStart(2, "0");
+    }
+
+    setInterval(actualizarContador, 1000);
+
 </script>
+     
+<section class="w-full bg-accent-rose text-white py-3 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-6 text-center">
+        
+        <!-- TEXTO -->
+        <p class="text-[11px] sm:text-sm font-bold uppercase tracking-widest">
+             Acceso con 20% OFF - Finaliza en:
+        </p>
+
+        <!-- CONTADOR + BOTÓN -->
+        <div class="flex items-center justify-center gap-3">
+            
+            <!-- CONTADOR -->
+            <div class="flex items-center gap-1 text-lg sm:text-xl font-extrabold tracking-widest bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur">
+                <span id="minutos">15</span>
+                <span class="opacity-70">:</span>
+                <span id="segundos">00</span>
+            </div>
+
+            <!-- CTA -->
+            <a href="#comprar" 
+               class="bg-white text-accent-rose font-bold text-[11px] sm:text-sm px-4 py-2 rounded-lg hover:scale-105 active:scale-95 transition whitespace-nowrap">
+                Comprar ahora
+            </a>
+
+        </div>
+
+    </div>
+</section>
 
    <header id="home" class="relative px-6 lg:px-24 pt-10 lg:pt-32 pb-20 lg:pb-32 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-x-hidden">
     
@@ -621,7 +676,7 @@ links.forEach(link => {
                     <a href="https://www.youtube.com/@magchuchco" target="_blank" class="flex items-center gap-2 hover:text-accent-rose transition-colors">
                         <span>Youtube</span>
                     </a>
-                    <a href="#" class="flex items-center gap-2 hover:text-accent-rose transition-colors opacity-50 cursor-not-allowed">
+                    <a href="#" class="flex items-center gap-2 hover:text-accent-rose transition-colors">
                         <span>TikTok</span>
                     </a>
                     <div class="pt-4">
